@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -45,14 +48,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.androidx.recyclerview)
-    implementation(libs.androidx.lifecycle.extensions)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.work.runtime)
-    implementation(libs.com.google.android.material.material.v100)
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
-    implementation(libs.org.jetbrains.kotlinx.kotlinx.coroutines.core)
-    implementation(libs.org.jetbrains.kotlinx.kotlinx.coroutines.android)
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.0")
+
+    // Retrofit2 核心库
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    // Gson 转换器
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    // Kotlin 协程支持
+    implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
 }
